@@ -9,11 +9,13 @@ package de.gianfelice.tetris;
 
 // --------------------------------- Import(s) ---------------------------------
 import com.jme3.app.SimpleApplication;
+import com.jme3.light.DirectionalLight;
 import com.jme3.material.Material;
 import com.jme3.math.ColorRGBA;
 import com.jme3.math.Vector3f;
 import com.jme3.scene.Geometry;
 import com.jme3.scene.shape.Box;
+import de.gianfelice.tetris.forms.Stick;
 
 /**
  * A simple Tetris-game to play with the jMonkeyEngine 3.
@@ -40,15 +42,17 @@ public class Tetris extends SimpleApplication {
      */
     @Override
     public void simpleInitApp() {
-        Box b = new Box(Vector3f.ZERO, 1, 1, 1);
-        Geometry geom = new Geometry("Box", b);
-        Material mat = new Material(assetManager,
-                "Common/MatDefs/Misc/Unshaded.j3md");
-        mat.setColor("Color", ColorRGBA.Blue);
-        geom.setMaterial(mat);
-        rootNode.attachChild(geom);
+        Stick stick = new Stick(assetManager);
+        rootNode.attachChild(stick.getForm());
+        
+        DirectionalLight sun = new DirectionalLight();
+        sun.setDirection(new Vector3f(1, 0, -2).normalizeLocal());
+        sun.setColor(ColorRGBA.White);
+        rootNode.addLight(sun);
 
         flyCam.setEnabled(false);
+        cam.getLocation().setZ(50);
+        cam.update();
     }
 
     /**
