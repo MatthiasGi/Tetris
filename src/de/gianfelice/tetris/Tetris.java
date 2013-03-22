@@ -12,8 +12,6 @@ import com.jme3.app.SimpleApplication;
 import com.jme3.light.DirectionalLight;
 import com.jme3.math.ColorRGBA;
 import com.jme3.math.Vector3f;
-import de.gianfelice.tetris.forms.LeftGun;
-import de.gianfelice.tetris.forms.Stick;
 
 /**
  * A simple Tetris-game to play with the jMonkeyEngine 3.
@@ -39,13 +37,7 @@ public class Tetris extends SimpleApplication {
      * {@inheritDoc}
      */
     @Override
-    public void simpleInitApp() {
-        Stick stick = new Stick(assetManager);
-        rootNode.attachChild(stick.getForm());
-        LeftGun gun = new LeftGun(assetManager);
-        rootNode.attachChild(gun.getForm());
-        gun.getForm().move(0, 0, 1);
-        
+    public void simpleInitApp() {        
         DirectionalLight sun = new DirectionalLight();
         sun.setDirection(new Vector3f(1, 0, -2).normalizeLocal());
         sun.setColor(ColorRGBA.White);
