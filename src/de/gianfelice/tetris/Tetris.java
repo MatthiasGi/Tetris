@@ -10,11 +10,9 @@ package de.gianfelice.tetris;
 // --------------------------------- Import(s) ---------------------------------
 import com.jme3.app.SimpleApplication;
 import com.jme3.light.DirectionalLight;
-import com.jme3.material.Material;
 import com.jme3.math.ColorRGBA;
 import com.jme3.math.Vector3f;
-import com.jme3.scene.Geometry;
-import com.jme3.scene.shape.Box;
+import de.gianfelice.tetris.forms.LeftGun;
 import de.gianfelice.tetris.forms.Stick;
 
 /**
@@ -44,6 +42,9 @@ public class Tetris extends SimpleApplication {
     public void simpleInitApp() {
         Stick stick = new Stick(assetManager);
         rootNode.attachChild(stick.getForm());
+        LeftGun gun = new LeftGun(assetManager);
+        rootNode.attachChild(gun.getForm());
+        gun.getForm().move(0, 0, 1);
         
         DirectionalLight sun = new DirectionalLight();
         sun.setDirection(new Vector3f(1, 0, -2).normalizeLocal());

@@ -10,41 +10,38 @@ package de.gianfelice.tetris.forms;
 
 // --------------------------------- Import(s) ---------------------------------
 import com.jme3.asset.AssetManager;
-import com.jme3.material.Material;
-import com.jme3.math.ColorRGBA;
 import com.jme3.scene.Node;
 
 
 /**
- * TODO: Descriptive Text 
+ * Abstract class which provides a convenient way of working with different
+ * forms onscreen.
  *
- * @author  Matthias
- * @version 0.0.0.1
+ * @author  Matthias Gianfelice
+ * @version 0.1.0.0
  */
 public abstract class Form {
 
     // ------------------------------ Attribute(s) -----------------------------
+    /** Should provide the {@link AssetManager} of the application. */
     protected AssetManager assetManager;
-    private static Material mat;
 
     // ----------------------------- Constructor(s) ----------------------------
+    /**
+     * Creates the form and saves the {@link AssetManager} for later use.
+     * 
+     * @param assetManager The assetmanager of the application
+     */
     public Form(AssetManager assetManager) {
         this.assetManager = assetManager;
     }
 
     // ------------------------------- Method(s) -------------------------------
+    /**
+     * Returns the node which itselfs contains all boxes of the form.
+     * 
+     * @return The node of the form
+     */
     public abstract Node getForm();
-    public abstract ColorRGBA getColor();
-    
-    public Material getMaterial() {
-        if (mat == null) {
-            mat = new Material(assetManager,
-                    "Common/MatDefs/Light/Lighting.j3md");
-            mat.setBoolean("UseMaterialColors", true);
-            mat.setColor("Ambient", getColor());
-            mat.setColor("Diffuse", getColor());
-        }
-        return mat;
-    }
 
 }

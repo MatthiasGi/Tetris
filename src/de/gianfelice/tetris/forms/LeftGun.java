@@ -19,37 +19,36 @@ import com.jme3.scene.shape.Box;
 
 
 /**
- * The basic stick, straight, long or I of the classic Tetris-game.
+ * The basic gamma, left gun, or J of the classic Tetris-game.
  *
- * @author  Matthias Gianfelice
+ * @author  Matthias
  * @version 0.1.0.0
  */
-public class Stick extends Form {
+public class LeftGun extends Form {
 
     // ------------------------------ Attribute(s) -----------------------------
     /** The node, containing all included boxes. */
-    private Node node = new Node("Stick");
+    private Node node = new Node("Left Gun");
     
     /** The color of the form itself. */
-    public static final ColorRGBA color = ColorRGBA.Cyan;
+    public static final ColorRGBA color = ColorRGBA.Blue;
     
     /** The material, static to save resources. */
     private static Material mat;
 
     // ----------------------------- Constructor(s) ----------------------------
-    /**
-     * {@inheritDoc}
-     */
-    public Stick(AssetManager assetManager) {
+    public LeftGun(AssetManager assetManager) {
         super(assetManager);
         
+        Geometry geom = null;
         for (int i = 0; i < 4; i++) {
             Box box = new Box(Vector3f.ZERO, .45f, .45f, .45f);
-            Geometry geom = new Geometry("Box#" + i, box);
+            geom = new Geometry("Box#" + i, box);
             geom.setMaterial(getMaterial());
             node.attachChild(geom);
-            geom.move(0, i - 1.5f, 0);
+            geom.move(i - 1, -.5f, 0);
         }
+        geom.move(-3, 1, 0);
     }
 
     // ------------------------------- Method(s) -------------------------------
