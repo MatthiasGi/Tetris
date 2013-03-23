@@ -13,7 +13,6 @@ import com.jme3.audio.AudioNode;
 import com.jme3.input.KeyInput;
 import com.jme3.input.controls.ActionListener;
 import com.jme3.input.controls.KeyTrigger;
-import com.jme3.math.FastMath;
 import com.jme3.scene.Node;
 import de.gianfelice.tetris.tetrominos.I;
 import de.gianfelice.tetris.tetrominos.J;
@@ -28,7 +27,7 @@ import de.gianfelice.tetris.tetrominos.Z;
  * A simple Tetris-game to play with the jMonkeyEngine 3.
  *
  * @author Matthias Gianfelice
- * @version 0.0.0.1
+ * @version 1.0.0.0
  */
 public class Tetris extends SimpleApplication implements ActionListener {
 

@@ -17,7 +17,7 @@ import de.gianfelice.tetris.Field;
  * The J tetromino.
  *
  * @author Matthias Gianfelice
- * @version 0.1.0.0
+ * @version 1.0.0.0
  */
 public class J extends Tetromino {
 

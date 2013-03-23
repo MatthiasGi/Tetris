@@ -10,14 +10,13 @@ package de.gianfelice.tetris.tetrominos;
 // --------------------------------- Import(s) ---------------------------------
 import com.jme3.asset.AssetManager;
 import com.jme3.math.ColorRGBA;
-import com.jme3.scene.Geometry;
 import de.gianfelice.tetris.Field;
 
 /**
  * The O tetromino.
  *
  * @author Matthias Gianfelice
- * @version 0.1.0.0
+ * @version 1.0.0.0
  */
 public class O extends Tetromino {
 

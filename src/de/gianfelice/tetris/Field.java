@@ -16,14 +16,12 @@ import com.jme3.scene.Node;
 import com.jme3.scene.shape.Quad;
 import de.gianfelice.tetris.tetrominos.Tetromino;
 import java.awt.Point;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Inside the field, all tetrominos are collected and displayed.
  *
  * @author Matthias Gianfelice
- * @version 0.0.0.1
+ * @version 1.0.0.0
  */
 public class Field extends Node {
 
@@ -34,8 +32,10 @@ public class Field extends Node {
     /** The material for the border-rectangles. */
     private Material mat;
 
+    /** Height of the field. */
     public static final int HEIGHT = 19;
 
+    /** Width of the field. */
     public static final int WIDTH = 10;
 
     // ----------------------------- Constructor(s) ----------------------------
@@ -91,6 +91,9 @@ public class Field extends Node {
         }
     }
 
+    /**
+     * Checks, if a row is full and deletes it, if so.
+     */
     public void checkRows() {
         for (int y = 0; y < HEIGHT; y++) {
             boolean complete = true;
@@ -103,6 +106,11 @@ public class Field extends Node {
         }
     }
 
+    /**
+     * Deletes a row.
+     * 
+     * @param y The row to delete
+     */
     private void removeLine(int y) {
         for (int x = 0; x < WIDTH; x++) detachChild(field[x][y]);
         for (; y < HEIGHT - 1; y++) {
